@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Link from "next/link";
 import MovieScore from "./MovieScore";
 
 const MovieCard = () => {
@@ -22,7 +23,9 @@ const MovieCard = () => {
         <MovieScore />
 
         <div className="card-actions">
-          <button className="btn btn-primary btn-block">Avaliar</button>
+          <Link href={`/form/${movie.id}`}>
+            <a className="btn btn-primary btn-block">Avaliar</a>
+          </Link>
         </div>
       </div>
     </div>

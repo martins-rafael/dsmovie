@@ -1,4 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
+import Link from "next/link";
+
 const FormTemplate = () => {
   const movie = {
     id: 1,
@@ -44,12 +46,14 @@ const FormTemplate = () => {
 
           <button type="submit" className="btn btn-primary btn-block mt-6">
             Salvar
-            </button>
+          </button>
         </form>
 
-        <button className="btn btn-outline btn-primary btn-block mt-3">
-          Cancelar
-          </button>
+        <Link href="/">
+          <a className="btn btn-outline btn-primary btn-block mt-3">
+            Cancelar
+          </a>
+        </Link>
       </div>
     </div>
   );
