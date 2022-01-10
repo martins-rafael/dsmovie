@@ -1,20 +1,5 @@
-import Navbar from 'components/Navbar';
-import Head from 'next/head';
+import ListingTemplate from 'templates/Listing';
 
-const Home = () => {
-  return (
-    <>
-      <Head>
-        <title>DSMovie</title>
-        <meta
-          name="description"
-          content="Aplicação desenvolvida na Semana Spring React"
-        />
-      </Head>
-
-      <Navbar />
-    </>
-  );
-};
+const Home = () => <ListingTemplate />;
 
 export default Home;
