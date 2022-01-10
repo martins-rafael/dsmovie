@@ -1,3 +1,9 @@
-const ListingTemplate = () => <h1>Página de Listagem</h1>;
+import Pagination from "components/Pagination";
+
+const ListingTemplate = () => {
+  return (
+    <Pagination />
+  );
+}
 
 export default ListingTemplate;
