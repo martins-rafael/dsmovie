@@ -15,7 +15,7 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang="pt-BR">
+      <Html lang="pt-BR" data-theme="dark">
         <Head>
           <meta name="theme-color" content="#3d4451" />
         </Head>
