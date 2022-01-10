@@ -1,3 +1,4 @@
+import Navbar from 'components/Navbar';
 import Head from 'next/head';
 
 const Home = () => {
@@ -11,7 +12,7 @@ const Home = () => {
         />
       </Head>
 
-      <h1>Página principal</h1>
+      <Navbar />
     </>
   );
 };
