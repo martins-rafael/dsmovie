@@ -14,3 +14,8 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #1d1f25;
 }
+
+.card.image-full::before {
+  border-radius: 0.5rem;
+  opacity: 0.5;
+}
