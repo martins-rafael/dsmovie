@@ -1,24 +1,21 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
+import { Movie } from "types/movie";
 import MovieScore from "./MovieScore";
 
-const MovieCard = () => {
-  const movie = {
-    id: 1,
-    image: "https://www.themoviedb.org/t/p/w533_and_h300_bestv2/jBJWaqoSCiARWtfV0GlqHrcdidd.jpg",
-    title: "The Witcher",
-    count: 2,
-    score: 4.5
-  };
+type MovieCardProps = {
+  movie: Movie;
+};
 
+const MovieCard = ({ movie }: MovieCardProps) => {
   return (
     <div className="card shadow-xl image-full">
       <figure>
         <img src={movie.image} alt={movie.title} />
       </figure>
 
-      <div className="card-body">
-        <h3 className="card-title text-center">{movie.title}</h3>
+      <div className="card-body justify-between">
+        <h3 className="font-bold text-center min-h-[5rem]">{movie.title}</h3>
 
         <MovieScore />
 
