@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 
-import { BASE_URL } from "utils/requests";
+import api from "services/api";
 import { MoviePage } from "types/movie";
 
 import MovieCard from "components/MovieCard";
 import Pagination from "components/Pagination";
-
 
 const ListingTemplate = () => {
   const [pageNumber, setPageNumber] = useState(0);
@@ -25,7 +23,7 @@ const ListingTemplate = () => {
   const { content } = page;
 
   useEffect(() => {
-    axios.get(`${BASE_URL}/movies?size=12&page=${pageNumber}`)
+    api.get(`movies?size=12&page=${pageNumber}`)
       .then(response => {
         const data: MoviePage = response.data;
         setPage(data);
