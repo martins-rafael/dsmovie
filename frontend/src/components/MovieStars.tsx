@@ -1,13 +1,35 @@
-import {FaStar, FaStarHalfAlt, FaRegStar} from 'react-icons/fa';
+import Star from "./Star";
 
-const MovieStars = () => {
+type MovieStarsProps = {
+  score: number;
+};
+
+// EX:
+// getFills(3.5) => [1, 1, 1, 0.5, 0]
+// getFills(4.1) => [1, 1, 1, 1, 0.5]
+function getFills(score: number) {
+  const fills = [0, 0, 0, 0, 0];
+  const integerPart = Math.floor(score);
+
+  for (let i = 0; i < integerPart; i++) {
+    fills[i] = 1;
+  }
+
+  const diff = score - integerPart;
+
+  if (diff > 0) {
+    fills[integerPart] = 0.5;
+  }
+
+  return fills;
+}
+
+const MovieStars = ({ score }: MovieStarsProps) => {
+  const fills = getFills(score);
+
   return (
     <div className="flex justify-between w-36">
-      <FaStar size={22} color="#FFBB3A" />
-      <FaStar size={22} color="#FFBB3A" />
-      <FaStar size={22} color="#FFBB3A" />
-      <FaStarHalfAlt size={22} color="#FFBB3A" />
-      <FaRegStar size={22} color="#FFBB3A" />
+      {fills.map(fill => <Star key={fill} fill={fill} />)}
     </div>
   );
 }

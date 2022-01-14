@@ -17,7 +17,7 @@ const MovieCard = ({ movie }: MovieCardProps) => {
       <div className="card-body justify-between">
         <h3 className="font-bold text-center min-h-[5rem]">{movie.title}</h3>
 
-        <MovieScore />
+        <MovieScore score={movie.score} count={movie.count} />
 
         <div className="card-actions">
           <Link href={`/form/${movie.id}`}>
