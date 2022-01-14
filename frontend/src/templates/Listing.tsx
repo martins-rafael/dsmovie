@@ -30,16 +30,19 @@ const ListingTemplate = () => {
       });
   }, [pageNumber]);
 
+  const handlePageChange = (newPageNumber: number) => {
+    setPageNumber(newPageNumber);
+  };
+
   return (
     <>
-      <Pagination />
+      <Pagination page={page} onChange={handlePageChange} />
+
       <div
         className="container mx-auto my-8 grid grid-cols-1 gap-8
         xl:grid-cols-4 lg:grid-cols-3 px-2"
       >
-        {content.map(movie => (
-          <MovieCard key={movie.id} movie={movie} />
-        ))}
+        {content.map(movie => <MovieCard key={movie.id} movie={movie} />)}
       </div>
     </>
   );

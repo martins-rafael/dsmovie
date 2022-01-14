@@ -1,12 +1,25 @@
-const Pagination = () => {
+import { MoviePage } from "types/movie";
+
+type PaginationProps = {
+  page: MoviePage
+  onChange: (pageNumber: number) => void;
+};
+
+const Pagination = ({ page, onChange }: PaginationProps) => {
+  const { number, totalPages, first, last } = page;
+
   return (
     <div className="flex items-center justify-between mx-auto max-w-[180px]">
-      <button className="btn btn-square rotate-180" disabled={true}>
+      <button
+        className="btn btn-square"
+        disabled={first}
+        onClick={() => onChange(number - 1)}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          className="inline-block w-6 h-6 stroke-current"
+          className="inline-block w-6 h-6 stroke-current rotate-180"
         >
           <path
             strokeLinecap="round"
@@ -17,9 +30,13 @@ const Pagination = () => {
         </svg>
       </button>
 
-      <p>{`${1} de ${3}`}</p>
+      <p>{`${number + 1} de ${totalPages}`}</p>
 
-      <button className="btn btn-square" disabled={false}>
+      <button
+        className="btn btn-square"
+        disabled={last}
+        onClick={() => onChange(number + 1)}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
