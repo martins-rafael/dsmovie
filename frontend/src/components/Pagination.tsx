@@ -11,6 +11,7 @@ const Pagination = ({ page, onChange }: PaginationProps) => {
   return (
     <div className="flex items-center justify-between mx-auto max-w-[180px]">
       <button
+        title="Página anterior"
         className="btn btn-square"
         disabled={first}
         onClick={() => onChange(number - 1)}
@@ -33,6 +34,7 @@ const Pagination = ({ page, onChange }: PaginationProps) => {
       <p>{`${number + 1} de ${totalPages}`}</p>
 
       <button
+        title="Próxima página"
         className="btn btn-square"
         disabled={last}
         onClick={() => onChange(number + 1)}

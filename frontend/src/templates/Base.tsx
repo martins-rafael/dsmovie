@@ -1,5 +1,5 @@
-import Head from 'next/head';
 import Navbar from "components/Navbar";
+import SEO from "components/SEO";
 
 type BaseProps = {
   children: React.ReactNode;
@@ -7,13 +7,7 @@ type BaseProps = {
 
 const BaseTemplate = ({ children }: BaseProps) => (
   <>
-    <Head>
-      <title>DSMovie</title>
-      <meta
-        name="description"
-        content="Aplicação desenvolvida na Semana Spring React"
-      />
-    </Head>
+    <SEO title="DSMovie" />
     <Navbar />
     {children}
   </>

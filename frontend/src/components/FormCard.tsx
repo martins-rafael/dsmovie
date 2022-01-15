@@ -10,6 +10,7 @@ import * as yup from "yup";
 import api from "services/api";
 import { Movie } from "types/movie";
 
+import SEO from "./SEO";
 import FormCardSkeleton from "./FormCardSkeleton";
 
 type FormCardProps = {
@@ -61,67 +62,71 @@ const FormCard = ({ movieId }: FormCardProps) => {
   }
 
   return (
-    <section className="mb-5 px-2">
-      <div className="card max-w-lg mx-auto shadow-lg">
-        <figure>
-          <img src={movie?.image} alt={movie?.title} />
-        </figure>
+    <>
+      <SEO title={`${movie?.title} | DSMovie`} />
 
-        <div className="card-body">
-          <h3 className="card-title">{movie?.title}</h3>
+      <section className="mb-5 px-2">
+        <div className="card max-w-lg mx-auto shadow-lg">
+          <figure>
+            <img src={movie?.image} alt={movie?.title} />
+          </figure>
 
-          <form className="form-control" onSubmit={handleSubmit(handleRateMovie)}>
-            <label className="label" htmlFor="email">
-              <span className="label-text">Informe seu email</span>
-            </label>
+          <div className="card-body">
+            <h3 className="card-title">{movie?.title}</h3>
 
-            <input
-              type="email"
-              placeholder="email"
-              className={errors.email ?
-                "input input-primary input-bordered input-error" :
-                "input input-primary input-bordered"
-              }
-              id="email"
-              {...register("email")}
-            />
+            <form className="form-control" onSubmit={handleSubmit(handleRateMovie)}>
+              <label className="label" htmlFor="email">
+                <span className="label-text">Informe seu email</span>
+              </label>
 
-            {errors.email && (
-              <span className="label-text-alt mt-2 text-red-400">
-                {errors.email.message}
-              </span>
-            )}
+              <input
+                type="email"
+                placeholder="email"
+                className={errors.email ?
+                  "input input-primary input-bordered input-error" :
+                  "input input-primary input-bordered"
+                }
+                id="email"
+                {...register("email")}
+              />
 
-            <label className="label" htmlFor="score">
-              <span className="label-text">Informe sua avaliação</span>
-            </label>
+              {errors.email && (
+                <span className="label-text-alt mt-2 text-red-400">
+                  {errors.email.message}
+                </span>
+              )}
 
-            <select
-              className="select select-bordered select-primary w-full"
-              id="score"
-              {...register("score")}
-            >
-              <option disabled>Escolha a nota</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
+              <label className="label" htmlFor="score">
+                <span className="label-text">Informe sua avaliação</span>
+              </label>
 
-            <button type="submit" className="btn btn-primary btn-block mt-6">
-              Salvar
-            </button>
-          </form>
+              <select
+                className="select select-bordered select-primary w-full"
+                id="score"
+                {...register("score")}
+              >
+                <option disabled>Escolha a nota</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
 
-          <Link href="/">
-            <a className="btn btn-outline btn-primary btn-block mt-3">
-              Cancelar
-            </a>
-          </Link>
+              <button type="submit" className="btn btn-primary btn-block mt-6">
+                Salvar
+              </button>
+            </form>
+
+            <Link href="/">
+              <a className="btn btn-outline btn-primary btn-block mt-3">
+                Cancelar
+              </a>
+            </Link>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 

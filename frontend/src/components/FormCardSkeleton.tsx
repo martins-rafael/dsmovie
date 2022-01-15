@@ -2,7 +2,7 @@ const FormCardSkeleton = () => {
   return (
     <section className="mb-5 px-2">
       <div className="card max-w-lg mx-auto shadow-lg animate-pulse">
-        <div className="w-full h-64 bg-gray-900 opacity-5" />
+        <div className="w-full h-64 bg-gray-900 opacity-50" />
 
         <div className="card-body">
           <h3 className="card-title bg-white opacity-5 rounded-sm">
