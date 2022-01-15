@@ -29,7 +29,7 @@ const MovieStars = ({ score }: MovieStarsProps) => {
 
   return (
     <div className="flex justify-between w-36">
-      {fills.map(fill => <Star key={fill} fill={fill} />)}
+      {fills.map((fill, index) => <Star key={index} fill={fill} />)}
     </div>
   );
 }
