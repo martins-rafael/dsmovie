@@ -10,6 +10,8 @@ import * as yup from "yup";
 import api from "services/api";
 import { Movie } from "types/movie";
 
+import FormCardSkeleton from "./FormCardSkeleton";
+
 type FormCardProps = {
   movieId: string;
 };
@@ -25,15 +27,10 @@ const formSchema = yup.object().shape({
 });
 
 const FormCard = ({ movieId }: FormCardProps) => {
+  const [isLoading, setIsLoading] = useState(true);
   const [movie, setMovie] = useState<Movie>();
 
   const router = useRouter();
-
-  useEffect(() => {
-    if (router.isReady) {
-      api.get(`movies/${movieId}`).then(response => setMovie(response.data));
-    }
-  }, [movieId, router.isReady]);
 
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
     resolver: yupResolver(formSchema)
@@ -48,6 +45,20 @@ const FormCard = ({ movieId }: FormCardProps) => {
 
     api(config).then(response => router.push('/'));
   };
+
+  useEffect(() => {
+    if (router.isReady) {
+      api.get(`movies/${movieId}`).then(response => setMovie(response.data));
+    }
+
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 700);
+  }, [movieId, router.isReady]);
+
+  if (isLoading) {
+    return <FormCardSkeleton />;
+  }
 
   return (
     <section className="mb-5 px-2">
