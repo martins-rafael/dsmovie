@@ -49,12 +49,14 @@ const FormCard = ({ movieId }: FormCardProps) => {
 
   useEffect(() => {
     if (router.isReady) {
-      api.get(`movies/${movieId}`).then(response => setMovie(response.data));
-    }
+      api.get(`movies/${movieId}`).then(response => {
+        setMovie(response.data);
 
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 700);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 700);
+      });
+    }
   }, [movieId, router.isReady]);
 
   if (isLoading) {

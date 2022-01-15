@@ -30,11 +30,11 @@ const ListingTemplate = () => {
       .then(response => {
         const data: MoviePage = response.data;
         setPage(data);
+        
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 700);
       });
-
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 700);
   }, [pageNumber]);
 
   const handlePageChange = (newPageNumber: number) => {
