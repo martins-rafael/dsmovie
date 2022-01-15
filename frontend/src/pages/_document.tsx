@@ -17,6 +17,7 @@ class MyDocument extends Document {
     return (
       <Html lang="pt-BR" data-theme="dark">
         <Head>
+          <link rel="manifest" href="/manifest.json" />
           <meta name="theme-color" content="#3d4451" />
         </Head>
         <body>
