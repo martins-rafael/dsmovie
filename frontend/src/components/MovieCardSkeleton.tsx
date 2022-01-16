@@ -1,6 +1,6 @@
 const MovieCardSkeleton = () => {
   return (
-    <div className="card shadow-xl image-full animate-pulse opacity-5">
+    <div className="card shadow-xl image-full animate-pulse">
       <div className="card-body justify-between items-start">
 
         <div className="w-full min-h-[2rem] bg-white opacity-5 rounded-sm"/>
