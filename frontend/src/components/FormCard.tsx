@@ -54,7 +54,7 @@ const FormCard = ({ movieId }: FormCardProps) => {
 
         setTimeout(() => {
           setIsLoading(false);
-        }, 700);
+        }, 200);
       });
     }
   }, [movieId, router.isReady]);

@@ -33,7 +33,7 @@ const ListingTemplate = () => {
         
         setTimeout(() => {
           setIsLoading(false);
-        }, 700);
+        }, 200);
       });
   }, [pageNumber]);
 
