@@ -26,7 +26,7 @@ const ListingTemplate = () => {
   const { content } = page;
 
   useEffect(() => {
-    api.get(`movies?size=12&page=${pageNumber}`)
+    api.get(`movies?sort=id&size=12&page=${pageNumber}`)
       .then(response => {
         const data: MoviePage = response.data;
         setPage(data);
